@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.CubicCurve?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="621.0" prefWidth="713.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ParkControler">
+   <children>
+      <Pane fx:id="paneP" layoutX="2.0" prefHeight="620.0" prefWidth="713.0">
+         <children>
+            <ImageView fitHeight="378.0" fitWidth="754.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@park.png" />
+               </image></ImageView>
+            <Rectangle fx:id="rect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="37.0" layoutX="90.0" layoutY="487.0" rotate="-61.0" stroke="BLACK" strokeType="INSIDE" width="83.0" x="79.0" y="-175.0" />
+            <CubicCurve fx:id="lane4" controlX1="33.0" controlX2="54.0" controlY1="568.0" controlY2="422.0" endX="212.0" endY="134.0" fill="#d6e1eb" opacity="0.57" startX="784.0" startY="568.0" stroke="BLACK" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
