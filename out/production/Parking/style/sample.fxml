@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -19,5 +20,6 @@
             <CubicCurve fx:id="lane4" controlX1="33.0" controlX2="54.0" controlY1="568.0" controlY2="422.0" endX="212.0" endY="134.0" fill="#d6e1eb" opacity="0.57" startX="784.0" startY="568.0" stroke="BLACK" />
          </children>
       </Pane>
+      <Button mnemonicParsing="false" onAction="#startButton" text="Button" />
    </children>
 </AnchorPane>

@@ -2,7 +2,6 @@ package sample;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class ParkPlace {
 
@@ -14,6 +13,7 @@ public class ParkPlace {
         private int y3;
         private int rot1;
         private int rot2;
+    boolean right;
 
 
 List<Car> cars=new ArrayList<Car>();
@@ -23,14 +23,11 @@ private boolean isEmpty=true;
 
 
         public ParkPlace(int id,int pos){
-
-
-
-
         }
 
         public ParkPlace(int id){
 
+                this.right=(id%2==0)?true:false;
                 this.x2=40;
                 this.y2=-80;
                 this.y3=-157;
@@ -47,7 +44,7 @@ private boolean isEmpty=true;
                         this.x1=523;
 
             }
-           // System.out.println("car parking in slot "+id);
+           //  .out.println("car parking in slot "+id);
             nbr++;
                 this.id=id;
 

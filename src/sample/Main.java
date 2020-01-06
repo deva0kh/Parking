@@ -20,7 +20,9 @@ public class Main extends Application {
         Scene scene =new Scene(root, 713, 620);
         primaryStage.setScene(scene);
 
+
         primaryStage.show();
+      //  Thread.sleep(1000);
     }
 
 

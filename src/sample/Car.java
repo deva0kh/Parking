@@ -16,7 +16,7 @@ public class Car {
 
     FileInputStream input = new FileInputStream("src/style/7.png");
 
-        public Car() throws FileNotFoundException {
+        public  Car() throws FileNotFoundException {
         this.posX=-100 ;
         this.posY = 520;
             img=new ImageView();
@@ -50,8 +50,7 @@ public class Car {
 
                 Handler handler = new Handler();
                 handler.parkHandler(this, pPlace, lane4);
-        System.out.println("car parking in slot "+pPlace.getId());
-       // pPlace.isEmpty(false);
+
         pPlace.setEmpty(false);
 
 

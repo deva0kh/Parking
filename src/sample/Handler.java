@@ -67,14 +67,15 @@ public class Handler  {
             if(lineP!=null){
                 int rota=0;
                 if(pkPlace.getId()%2!=0){ rota=-120;} else { rota =120;}
-                pt= new PathTransition(Duration.seconds(4),lineP,car.getImg());
-               rt4=new RotateTransition(Duration.seconds(4),car.getImg());
+                pt= new PathTransition(Duration.seconds(6),lineP,car.getImg());
+               rt4=new RotateTransition(Duration.seconds(6),car.getImg());
                // sq1 = new SequentialTransition(car.getImg(),rt,rt4);
                // sq1.
                rt4.setByAngle(rota);
                 rt4.play();
-                pt.setDelay(Duration.seconds(0));
+                //pt.setDelay(Duration.seconds(0));
                 pt.setCycleCount(1);
+                pt.setDelay(Duration.seconds(4));
                 pt.play();
             }
 
@@ -113,12 +114,15 @@ public class Handler  {
 
                 sq1 = new SequentialTransition(car.getImg(),tr1,pl);
                 pl2 = new ParallelTransition(car.getImg(), rt3, tr3 );
-                sql2 = new SequentialTransition(car.getImg(), sq1,pl2);
+                sql2 = new SequentialTransition(car.getImg(),sq1,pl2);
+               // sql2.setDelay(Duration.seconds(3));
+                sql2.setDelay(Duration.seconds(2));
                 sql2.play();
-                sql2.setDelay(Duration.seconds(3));
+
+                //sql2.setDelay(Duration.seconds(3));
 
             }
-
+       System.out.println("car parking in slot "+pkPlace.getId());
         }
 
 
