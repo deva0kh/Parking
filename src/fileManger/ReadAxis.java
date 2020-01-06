@@ -9,7 +9,7 @@ public class ReadAxis {
 
 
 
-    public  static List<String> readAxis(String fileName)
+    public  static List<String> readAxisF(String fileName)
     {
 
         List<String> lines = Collections.emptyList();
@@ -28,7 +28,7 @@ public class ReadAxis {
 
     public  List<Integer> appeandAxis(int parkSpot){
         int i;
-        List l = readAxis("/Users/devmqk/Desktop/de.txt");
+        List l = readAxisF("/Users/devmqk/Desktop/de.txt");
         List lisApp =l.subList(parkSpot,parkSpot+9);
 
         return lisApp;

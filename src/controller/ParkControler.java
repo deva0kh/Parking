@@ -6,7 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.CubicCurve;
 import sample.Car;
-import fileManae
+
 import sample.CarPark;
 import sample.ParkPlace;
 import java.io.FileNotFoundException;
