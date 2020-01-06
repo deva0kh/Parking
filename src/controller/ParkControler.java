@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 
 import javafx.fxml.FXML;
@@ -6,7 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.CubicCurve;
 import sample.Car;
-import FileManager
+import fileManae
 import sample.CarPark;
 import sample.ParkPlace;
 import java.io.FileNotFoundException;
@@ -82,7 +82,7 @@ public class ParkControler implements Initializable,Runnable {
 
 
     public void appAxis(int place){
-        List values =
+       // List values =
     }
 
     @Override

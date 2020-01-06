@@ -1,4 +1,4 @@
-package FileManger;
+package fileManger;
 import java.io.IOException;
 import java.util.*;
 import java.nio.charset.StandardCharsets;
