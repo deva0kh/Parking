@@ -1,9 +1,7 @@
 package sample;
 
 import javafx.animation.*;
-
 import javafx.scene.shape.CubicCurve;
-import javafx.scene.shape.QuadCurve;
 import javafx.util.Duration;
 
 
@@ -77,6 +75,11 @@ public class Handler  {
                 pt.setCycleCount(1);
                 pt.setDelay(Duration.seconds(4));
                 pt.play();
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
 
             else{
@@ -118,6 +121,11 @@ public class Handler  {
                // sql2.setDelay(Duration.seconds(3));
                 sql2.setDelay(Duration.seconds(2));
                 sql2.play();
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
 
                 //sql2.setDelay(Duration.seconds(3));
 

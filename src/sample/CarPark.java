@@ -2,6 +2,7 @@ package sample;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class CarPark {
     int x1;
@@ -16,13 +17,14 @@ static List<Car> cars =new ArrayList<Car>();
 
 
     public CarPark(boolean right){
+        Random r = new Random();
 
         axis=new int[8];
 
 
-    while(count<capacity){
-       parkPlaces.add(new ParkPlace(i));
-        i++;
+    while(count<10){
+       parkPlaces.add(new ParkPlace(r.nextInt((9 - 0) + 1) + 0));
+        //
         count++;
     }/*
     for(ParkPlace pP: parkPlaces){

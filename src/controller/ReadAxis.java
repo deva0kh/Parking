@@ -1,13 +1,18 @@
-package fileManger;
+package controller;
+
 import java.io.IOException;
-import java.util.*;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class ReadAxis {
 
-
+    public ReadAxis() {
+    }
 
     public  static List<String> readAxisF(String fileName)
     {
@@ -26,10 +31,14 @@ public class ReadAxis {
         return lines;
     }
 
-    public  List<Integer> appeandAxis(int parkSpot){
+    public static List<Integer> appeandAxis(int parkSpot){
         int i;
-        List l = readAxisF("/Users/devmqk/Desktop/de.txt");
-        List lisApp =l.subList(parkSpot,parkSpot+9);
+        List<String> l = readAxisF("/Users/devmqk/Desktop/de.txt");
+        List <Integer>lisApp = l.stream()
+                .map(s -> Integer.parseInt(s))
+                .collect(Collectors.toList());
+        lisApp=lisApp.subList(parkSpot,parkSpot+10);
+
 
         return lisApp;
         /*

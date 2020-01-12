@@ -1,22 +1,23 @@
 package controller;
 
 
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.CubicCurve;
 import sample.Car;
-
 import sample.CarPark;
 import sample.ParkPlace;
+
 import java.io.FileNotFoundException;
 import java.net.URL;
+import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
 
-
-public class ParkControler implements Initializable,Runnable {
+public class ParkControler extends Task<Integer> implements Initializable,Runnable {
 
 
     @FXML
@@ -26,6 +27,7 @@ public class ParkControler implements Initializable,Runnable {
     @FXML
     private CubicCurve lane4;
     //boolean right = ();
+
     CarPark carPark=new CarPark(true);
 
 
@@ -34,25 +36,22 @@ public class ParkControler implements Initializable,Runnable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
 
-
-
-
         System.out.println("hello from initial");
 
     }
 
     @FXML
     void startButton() {
-        run();
+        call();
         System.out.println("button start clicked");
 
     }
 
-    public void park(int a){
+    public void park(int a){//TODO
     }
 
 
-    public synchronized void park(ParkPlace parkPlace,CubicCurve lane4){
+    public  void park(ParkPlace parkPlace,CubicCurve lane4){
 
         Car car = null;
         try {
@@ -62,32 +61,48 @@ public class ParkControler implements Initializable,Runnable {
             e.printStackTrace();
         }
        //this two variables to set position
+
+        paneP.getChildren().add(car.getImg());
+        car.getImg().setX(car.getPosX());
+        car.getImg().setY(car.getPosY());
+        car.park(parkPlace, lane4);
+       // updateProgress(parkPlace.getId(),10);
+
+
+        carPark.setCapacity((carPark.getCapacity())-1);
+
         try {
             TimeUnit.SECONDS.sleep(1);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        paneP.getChildren().add(car.getImg());
-        car.getImg().setX(car.getPosX());
-        car.getImg().setY(car.getPosY());
-        car.park(parkPlace, lane4);
-
-
-
-        carPark.setCapacity((carPark.getCapacity())-1);
-
-
 
     }
 
 
     public void appAxis(int place){
-       // List values =
+        List<Integer> values = ReadAxis.appeandAxis(place);
+        lane4.setStartX(values.get(2));
+        System.out.print(" "+values.get(2));
+        lane4.setStartY(values.get(3));
+        lane4.setEndX(values.get(4));
+        lane4.setEndY(values.get(5)) ;
+        lane4.setControlX1(values.get(6));
+        lane4.setControlY1(values.get(7));
+        lane4.setControlX2(values.get(8));
+        lane4.setControlY2(values.get(9));
+
+        Iterator<Integer> itr = values.iterator();
+
+        while (itr.hasNext())
+
+            System.out.print(itr.next()+ " ");
+
     }
 
-    @Override
-    public void run() {
 
+    public Integer call() {
+double x=3,max=10;
         for(ParkPlace pP: carPark.parkPlaces) {
 
             System.out.println(pP.getId());
@@ -98,26 +113,24 @@ public class ParkControler implements Initializable,Runnable {
                 } else  {
                     switch (pP.getId()) {
                         case 3:
-                            lane4.setEndX(56);
-                            lane4.setEndY(228);
-                            lane4.setControlX2(144);
-                            lane4.setControlY2(388);
+                            appAxis(0);
                             this.park(pP, lane4);
                             break;
                         case 4:
-                            lane4.setEndX(212);
-                            lane4.setEndY(222);
+                            appAxis(10);
                             this.park(pP,lane4)  ;
                             break;
 
-                        case 5:  lane4.setEndX(58);
-                            lane4.setEndY(136);
+                        case 5:
+                            appAxis(20);
+                            this.park(pP,lane4)  ;
                             break;
 
                         case 6:
-
+                            appAxis(30);
                             this.park(pP, lane4);
                             break;
+                          // updateProgress(x, max);
 
                     }
 
@@ -127,7 +140,12 @@ public class ParkControler implements Initializable,Runnable {
             }
 
         }
+return 22;
+
 
 
     }
-}
+
+    }
+
+
